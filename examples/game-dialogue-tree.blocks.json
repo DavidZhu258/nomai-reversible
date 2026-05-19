@@ -1,0 +1,19 @@
+[
+  {
+    "id": "festival-root",
+    "speaker": "LAMI",
+    "text": "LAMI: This festival remembers everyone who walked beneath these stars before us."
+  },
+  {
+    "id": "pye-reply",
+    "parentId": "festival-root",
+    "speaker": "PYE",
+    "text": "PYE: Then the music is not only a celebration."
+  },
+  {
+    "id": "lami-answer",
+    "parentId": "pye-reply",
+    "speaker": "LAMI",
+    "text": "LAMI: It is a promise that our questions will keep growing after we are gone."
+  }
+]

@@ -1,0 +1,13 @@
+node_modules/
+dist/
+web-dist/
+coverage/
+*.log
+.env
+.DS_Store
+codex-project-summary.md
+.codex/
+docs/superpowers/
+examples/*.svg
+examples/*.png
+!examples/hello.svg
