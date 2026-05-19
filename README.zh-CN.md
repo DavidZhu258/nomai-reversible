@@ -1,12 +1,22 @@
-# Nomai Reversible
+<div align="center">
 
 [英文版](README.md)
+
+# 🌌 Nomai Reversible
+### 可逆 Nomai 螺旋文字生成器
+
+<p>
+  <sub><em>“宇宙很古老，而且很大。我们的种族存在的时间，不过是宇宙打了个盹的功夫。<br/>但这不意味着我们的存在没有意义。”</em></sub><br/>
+  <sub><em>“我从未见过你的同族。能与你交谈是我的荣幸。”</em></sub>
+</p>
+
+![Nomai 示例](examples/hello.svg)
+
+</div>
 
 Nomai Reversible 是一个开源的 Nomai 风格文字工具。它可以把任意 Unicode 文本生成类似 Nomai 螺旋墙文的 SVG 图像，并且可以把本工具生成的 SVG 精确解码回原始文本。
 
 本项目的视觉灵感来自《Outer Wilds》的 Nomai 文字，以及 Evan Fields 的优秀开源项目 [NomaiText.jl](https://github.com/evanfields/NomaiText.jl)。本项目不是 Outer Wilds、Mobius Digital 或 NomaiText.jl 的官方项目。
-
-![Nomai 示例](examples/hello.svg)
 
 ## 项目目标
 

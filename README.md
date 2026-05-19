@@ -1,12 +1,22 @@
-# Nomai Reversible
+<div align="center">
 
-[Simplified Chinese](README.zh-CN.md)
+[Read in Simplified Chinese](README.zh-CN.md)
+
+# 🌌 Nomai Reversible
+### Reversible Nomai-Style Spiral Writing
+
+<p>
+  <sub><em>"The universe is very old, and very large. Our species has only existed for a tiny fraction of that time. But that does not mean our existence has no meaning."</em></sub><br/>
+  <sub><em>"I've never met one of your kind before. It's an honor to speak with you!"</em></sub>
+</p>
+
+![Nomai sample](examples/hello.svg)
+
+</div>
 
 Nomai Reversible is a fan-made, open-source text tool that turns Unicode text into Nomai-inspired spiral SVG writing and decodes its own generated SVGs back to the exact original text.
 
 It is inspired by the visual language of *Outer Wilds* and by Evan Fields' excellent [NomaiText.jl](https://github.com/evanfields/NomaiText.jl). It is not an official Outer Wilds, Mobius Digital, or NomaiText.jl project.
-
-![Nomai sample](examples/hello.svg)
 
 ## Why This Exists
 
