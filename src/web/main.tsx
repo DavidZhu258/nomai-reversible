@@ -5,8 +5,6 @@ import "./styles.css";
 
 function App() {
   const [text, setText] = useState("你好，Nomai。今天适合看星星。");
-  const [sourceLang, setSourceLang] = useState("zh-Hans");
-  const [pivotEnglish, setPivotEnglish] = useState("Hello, Nomai. Today is good for watching stars.");
   const [seed, setSeed] = useState(47);
   const [handwriting, setHandwriting] = useState(0);
   const [decodeInput, setDecodeInput] = useState("");
@@ -15,17 +13,16 @@ function App() {
 
   const encoded = useMemo(() => encodeToNomaiImage({
     originalText: text,
-    sourceLang,
-    pivotEnglish: pivotEnglish || undefined,
     seed,
     handwriting
-  }), [handwriting, pivotEnglish, seed, sourceLang, text]);
+  }), [handwriting, seed, text]);
 
   function decode(value = decodeInput || encoded.svg) {
     try {
       const decoded = decodeNomaiImage(value);
       setDecodedText(decoded.originalText);
-      setDecodedMeta(`${decoded.sourceLang} | checksum ${decoded.checksumOk ? "ok" : "failed"}${decoded.pivotEnglish ? ` | ${decoded.pivotEnglish}` : ""}`);
+      const sourceLang = decoded.sourceLang && decoded.sourceLang !== "auto" ? `${decoded.sourceLang} | ` : "";
+      setDecodedMeta(`${sourceLang}checksum ${decoded.checksumOk ? "ok" : "failed"}${decoded.pivotEnglish ? ` | ${decoded.pivotEnglish}` : ""}`);
     } catch (error) {
       setDecodedText("");
       setDecodedMeta(error instanceof Error ? error.message : String(error));
@@ -69,25 +66,24 @@ function App() {
       <section className="workspace">
         <div className="panel editor">
           <h2>Encode</h2>
-          <label htmlFor="source">Text to encode and decode</label>
-          <textarea id="source" value={text} onChange={(event) => setText(event.target.value)} />
+          <label htmlFor="source">Text</label>
+          <textarea
+            id="source"
+            placeholder="Enter text in any language..."
+            value={text}
+            onChange={(event) => setText(event.target.value)}
+          />
 
           <div className="split">
-            <label htmlFor="lang">
-              Language
-              <input id="lang" value={sourceLang} onChange={(event) => setSourceLang(event.target.value)} />
-            </label>
             <label htmlFor="seed">
               Seed
               <input id="seed" type="number" value={seed} onChange={(event) => setSeed(Number(event.target.value))} />
             </label>
+            <label htmlFor="handwriting">
+              Handwriting
+              <input id="handwriting" type="range" min="0" max="0.5" step="0.01" value={handwriting} onChange={(event) => setHandwriting(Number(event.target.value))} />
+            </label>
           </div>
-
-          <label htmlFor="pivot">English reading metadata (optional)</label>
-          <input id="pivot" value={pivotEnglish} onChange={(event) => setPivotEnglish(event.target.value)} />
-
-          <label htmlFor="handwriting">Handwriting</label>
-          <input id="handwriting" type="range" min="0" max="0.5" step="0.01" value={handwriting} onChange={(event) => setHandwriting(Number(event.target.value))} />
 
           <div className="buttonRow">
             <button type="button" onClick={() => copy(encoded.svg)}>Copy SVG</button>

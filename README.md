@@ -82,11 +82,11 @@ npm run cli -- decode NOMAI1-...
 4. Paste the SVG/token into the decoder, or upload the generated `.svg` file.
 5. Decode it back to the original text.
 
-## Text Fields
+## Text Field
 
-`Text to encode and decode` is the canonical source. It controls both the visible Nomai geometry and the decoded result.
+`Text` is the canonical source. Enter Chinese, English, Japanese, emoji, or mixed-language Unicode text here; it controls both the visible Nomai geometry and the decoded result.
 
-`English reading metadata` is optional. Use it for pronunciation notes, an English translation, or any reading aid you want to keep with the SVG. It is stored in metadata but does not change the Nomai drawing.
+The web UI intentionally has no separate English-reading field. Pronunciation or translation metadata may still appear when decoding older generated SVGs, but new web output is driven by this single multilingual text field.
 
 ## How It Works
 

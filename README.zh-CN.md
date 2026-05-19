@@ -84,9 +84,9 @@ npm run cli -- decode NOMAI1-...
 
 ## 文本字段说明
 
-`Text to encode and decode` 是核心文本。它决定可见的 Nomai 图形，也决定 decoder 恢复出的结果。
+`Text` 是唯一核心文本。你可以在这里输入中文、英文、日文、emoji 或混合语言 Unicode 文本；它决定可见的 Nomai 图形，也决定 decoder 恢复出的结果。
 
-`English reading metadata` 是可选字段。你可以把它当作英文读音、英文翻译或阅读备注。它会被保存到 metadata 中，但不会改变 Nomai 图形。
+网页界面不再单独显示 English reading 字段。旧 SVG 解码时仍然可以读出已有的读音或翻译 metadata，但新网页输出只由这个多语言文本字段驱动。
 
 ## 工作原理
 

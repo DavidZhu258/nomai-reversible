@@ -36,11 +36,13 @@ describe("web translation flow", () => {
     expect(decoded.sourceLang).toBe("ja");
   });
 
-  test("web UI starts with clean handwriting and clarifies original text vs English reading", async () => {
+  test("web UI starts with a single multilingual source text field", async () => {
     const main = await readFile("src/web/main.tsx", "utf8");
 
     expect(main).toContain("useState(0)");
-    expect(main).toContain("Text to encode and decode");
-    expect(main).toContain("English reading metadata (optional)");
+    expect(main).toContain("Text");
+    expect(main).toContain("Enter text in any language");
+    expect(main).not.toContain("English reading metadata");
+    expect(main).not.toContain("Language");
   });
 });
