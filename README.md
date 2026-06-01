@@ -78,15 +78,23 @@ npm run cli -- decode NOMAI1-...
 
 1. Enter the text you want to encode.
 2. Adjust seed or handwriting if desired.
-3. Download the SVG, copy the SVG, or copy the token.
-4. Paste the SVG/token into the decoder, or upload the generated `.svg` file.
-5. Decode it back to the original text.
+3. Enable `Camera QR` if you want a small bottom-right QR in the SVG plus a standalone `Token QR`.
+4. Save the SVG locally, copy the SVG, or copy the token.
+5. Paste the SVG/token into the decoder, upload the generated `.svg` file, or choose a QR image from the gallery.
+6. Or click `Scan Camera` and point a camera at a `Camera QR` code; the scanned token or scan URL is imported and decoded automatically.
+7. Decode it back to the original text.
 
 ## Text Field
 
 `Text` is the canonical source. Enter Chinese, English, Japanese, emoji, or mixed-language Unicode text here; it controls both the visible Nomai geometry and the decoded result.
 
 The web UI intentionally has no separate English-reading field. Pronunciation or translation metadata may still appear when decoding older generated SVGs, but new web output is driven by this single multilingual text field.
+
+The web UI can switch between English and Chinese without mixing both languages on every control.
+
+`Camera QR` is optional. It adds a small bottom-right QR layer to the SVG and a larger standalone `Token QR` in the web UI. The QR stores a `https://nomai.uk/#nomai=...` scan URL, so native phone camera apps can open the decoder directly. The hidden SVG metadata remains present either way.
+
+`Scan Camera` reads that visible QR code in the browser and imports the scanned `NOMAI1-*` token from either a bare token or the scan URL. Camera access works on `localhost`; phones usually require HTTPS. The decoder can also scan a local QR image chosen from the gallery.
 
 ## How It Works
 

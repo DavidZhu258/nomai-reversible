@@ -27,6 +27,7 @@ body {
 
 h1,
 h2,
+h3,
 p {
   margin: 0;
 }
@@ -40,6 +41,11 @@ h1 {
 h2 {
   color: #24373a;
   font-size: 16px;
+}
+
+h3 {
+  color: #24373a;
+  font-size: 13px;
 }
 
 p {
@@ -90,6 +96,17 @@ textarea {
   resize: vertical;
 }
 
+.checkRow {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+}
+
+.checkRow input {
+  width: auto;
+}
+
 .split,
 .buttonRow,
 .actions {
@@ -99,7 +116,8 @@ textarea {
 }
 
 .actions {
-  min-width: 260px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  min-width: 390px;
 }
 
 button {
@@ -117,6 +135,11 @@ button {
 
 button:hover {
   background: #0c517b;
+}
+
+button:disabled {
+  background: #8ba6b5;
+  cursor: not-allowed;
 }
 
 .preview {
@@ -148,6 +171,52 @@ button:hover {
   background: #f7fafb;
   padding: 12px;
   white-space: pre-wrap;
+}
+
+.scanner {
+  display: grid;
+  gap: 8px;
+}
+
+.qrCard {
+  display: grid;
+  gap: 10px;
+  border-top: 1px solid #d4dce1;
+  padding-top: 12px;
+}
+
+.qrPreview {
+  display: grid;
+  place-items: center;
+  border: 1px solid #ccd7dc;
+  border-radius: 6px;
+  background: #ffffff;
+  padding: 10px;
+}
+
+.qrPreview svg {
+  width: min(100%, 280px);
+  height: auto;
+  image-rendering: pixelated;
+}
+
+.scanner video {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border: 1px solid #ccd7dc;
+  border-radius: 6px;
+  background: #0e171a;
+  object-fit: cover;
+}
+
+.scanner video.hidden {
+  display: none;
+}
+
+.scanner span {
+  color: #607078;
+  font-size: 12px;
+  line-height: 1.45;
 }
 
 .decoded span {
